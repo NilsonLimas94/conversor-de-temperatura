@@ -1,6 +1,13 @@
-/* 
-    Reset básico - remove margens e padding padrões do navegador
-*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Registra o ângulo para animação suave da borda */
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+/* Reset Básico */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -9,129 +16,303 @@
 
 body {
     min-height: 100vh;
-    background-color: #030d18;
+    background-color: #030D18;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: sans-serif;
-    color: #fafcff;
+    font-family: 'Inter', sans-serif;
+    color: #FAFCFF;
+    padding: 16px;
+    position: relative;
+    overflow-x: hidden;
 }
 
-.container {
-    width: 90%;
-    max-width: 840px;
-    padding: 40px 32px 32px;
-    border-radius: 32px;
-    background: linear-gradient(
-        160deg,
-        rgba(255, 255, 255, 0.07) 0%,
-        rgba(255, 255, 255, 0.02) 100%
+/* Wrapper da Borda Giratória com as Cores da Aurora */
+.card-glow-wrapper {
+    position: relative;
+    border-radius: 44px;
+    padding: 2px;
+    background: conic-gradient(
+        from var(--angle),
+        #3ADCA8,
+        #5E83F4,
+        #DB8BFF,
+        #DB64B3,
+        #3ADCA8
     );
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
+    animation: rotateAurora 6s linear infinite;
+    width: 100%;
+    max-width: 630px;
+    box-shadow: 
+        0 0 35px rgba(58, 220, 168, 0.22),
+        0 0 50px rgba(219, 100, 179, 0.18);
+}
+
+@keyframes rotateAurora {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+/* Card Principal */
+.container {
+    width: 100%;
+    padding: 44px 40px 36px;
+    border-radius: 42px;
+    background: #06111D;
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
+/* Header */
 .card-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.card-header img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-}
-
-.card-header h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-}
-
-/* Área dos campos */
-.fields {
+    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    align-items: center;
+    gap: 12px;
 }
 
-/* Cada campo individual */
-.field {
+.header-title-group {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 16px;
-    padding: 20px 24px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.field img {
-    width: 40px;
-    height: 40px;
+.header-icon {
+    width: 52px;
+    height: 52px;
     object-fit: contain;
     flex-shrink: 0;
 }
 
-.field label {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.6);
-    min-width: 100px;
+.card-header h1 {
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: left;
+    letter-spacing: -0.02em;
 }
 
-.field input {
+.subtitle {
+    font-size: clamp(0.72rem, 2.5vw, 0.85rem);
+    color: rgba(250, 252, 255, 0.65);
+    letter-spacing: 0.01em;
+}
+
+/* Campos de Temperatura */
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: all 0.25s ease;
+    gap: 12px;
+}
+
+.field:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.field-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.field-info img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.field-info label {
+    font-size: clamp(0.95rem, 3vw, 1.15rem);
+    font-weight: 600;
+    color: #FAFCFF;
+    cursor: pointer;
+}
+
+/* Área de Digitação + Unidade com Tamanho Fluido */
+.input-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
     flex: 1;
+    justify-content: flex-end;
+    min-width: 0;
+}
+
+.input-wrapper input {
+    width: 100%;
+    min-width: 0;
     background: none;
     border: none;
     outline: none;
-    color: #fafcff;
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    /* Fonte fluida: diminui em telas pequenas sem espremer */
+    font-size: clamp(1.35rem, 4.5vw, 2.2rem);
+    font-weight: 700;
+    color: #FAFCFF;
     text-align: right;
+}
+
+/* Cor ciano/verde para Celsius */
+.field-celsius .input-wrapper input,
+.field-celsius .unit {
+    color: #9FF5F9;
+}
+
+/* Placeholder */
+.input-wrapper input::placeholder {
+    color: rgba(250, 252, 255, 0.35);
+}
+
+.field-celsius .input-wrapper input::placeholder {
+    color: rgba(159, 245, 249, 0.4);
+}
+
+/* Remove setas do input type number */
+.input-wrapper input::-webkit-outer-spin-button,
+.input-wrapper input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.input-wrapper input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.unit {
+    font-size: clamp(0.95rem, 3vw, 1.15rem);
+    font-weight: 600;
+    color: #FAFCFF;
+    flex-shrink: 0;
+}
+
+/* Foco nos campos */
+.field-celsius:focus-within {
+    border-color: rgba(92, 244, 158, 0.5);
+    box-shadow: 0 0 16px rgba(92, 244, 158, 0.2);
+}
+
+.field-fahrenheit:focus-within {
+    border-color: rgba(185, 164, 255, 0.5);
+    box-shadow: 0 0 16px rgba(185, 164, 255, 0.2);
+}
+
+.field-kelvin:focus-within {
+    border-color: rgba(243, 184, 233, 0.5);
+    box-shadow: 0 0 16px rgba(243, 184, 233, 0.2);
 }
 
 /* Rodapé */
 .card-footer {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    gap: 14px;
+    margin-top: 4px;
 }
 
-/* Pills (auto update e info) */
-.pill {
+.status-pills {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 8px;
-    padding: 10px 20px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.04);
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
+    width: 100%;
 }
 
-.pill img {
-    width: 16px;
-    height: 16px;
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: rgba(250, 252, 255, 0.75);
+}
+
+.pill-icon {
+    width: 13px;
+    height: 13px;
     object-fit: contain;
 }
 
-/* Botão de sinc */
-.btn-sinc {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
+.dot-green {
+    width: 6px;
+    height: 6px;
+    background-color: #5CF49E;
     border-radius: 50%;
+    box-shadow: 0 0 6px #5CF49E;
 }
 
-.btn-sinc img {
-    width: 32px;
-    height: 32px;
-    display: block;
+/* Botão Reset Values */
+.btn-reset {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 8px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(250, 252, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-reset:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FAFCFF;
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+/* Ajustes finos para Mobile (abaixo de 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .card-glow-wrapper {
+        border-radius: 36px;
+    }
+
+    .container {
+        padding: 28px 18px 24px;
+        border-radius: 34px;
+        gap: 20px;
+    }
+
+    .field {
+        padding: 14px 16px;
+        border-radius: 18px;
+    }
+
+    .status-pills {
+        gap: 6px;
+    }
+
+    .pill {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
 }

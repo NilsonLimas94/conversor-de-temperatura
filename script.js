@@ -49,13 +49,13 @@ kelvinInput.addEventListener('input', () => {
     fahrenheitInput.value = ((emCelsius * 9 / 5) + 32).toFixed(2);
 });
 
-// Seleciona o botão de sincronização/limpeza
-const btnSinc = document.querySelector('.btn-sinc');
+// Seleciona o botão de Reset Values
+const btnReset = document.getElementById('btn-reset');
 
-// Ao clicar no botão, limpa todos os campos
-btnSinc.addEventListener('click', () => {
+// Ao clicar em Reset Values, limpa todos os campos
+btnReset.addEventListener('click', () => {
     celsiusInput.value = '';
     fahrenheitInput.value = '';
     kelvinInput.value = '';
-    celsiusInput.focus(); // Devolve o cursor para o campo Celsius
+    celsiusInput.focus();
 });

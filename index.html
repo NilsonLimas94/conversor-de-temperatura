@@ -7,49 +7,85 @@
     <title>Temperature Converter</title>
 </head>
 <body>
-    <div class="container">
-        <header class="card-header">
-            <img src="./Assets/icons/Groupicon-header.png" alt="Ícone de termômetro">
-            <h1>Temperature Converter</h1>
-        </header>
-        <main class="fields">
 
-            <div class="field">
-                <img src="./Assets/icons/icon-celsiusicon-celsius.png" alt="Celsius">
-                <label for="celsius">Celsius</label>
-                <input type="number" id="celsius" placeholder="0">
-            </div>
-
-            <div class="field">
-                <img src="./Assets/icons/icon-fahrenheiticon-fahrenheit.png" alt="Fahrenheit">
-                <label for="fahrenheit">Fahrenheit</label>
-                <input type="number" id="fahrenheit" placeholder="0">
-            </div>
-
-            <div class="field">
-                <img src="./Assets/icons/Groupicon-kelvin.png" alt="Kelvin">
-                <label for="kelvin">Kelvin</label>
-                <input type="number" id="kelvin" placeholder="0">
-            </div>
-        </main>
-
-        <footer class="card-footer">
-
-            <div class="pill pill-auto">
-                <img src="./Assets/icons/icon-auto-updating.png" alt="auto update">
-                <span>Auto updating</span>
-            </div>
-
-            <button class="btn-sinc" type="button" aria-label="sincronizar">
-                <img src="./Assets/icons/Sincronização.png" alt="">
-            </button>
-
-            <div class="pill pill-info">
-                <img src="./Assets/icons/icon-information.png" alt="Informação">
-                <span>Res. value . Zero absolute</span>
-            </div>
+    <!-- Container com Borda Giratória de Aurora -->
+    <div class="card-glow-wrapper">
+        <div class="container">
             
-        </footer>
+            <!-- Cabeçalho -->
+            <header class="card-header">
+                <div class="header-title-group">
+                    <img src="./Assets/icons/Groupicon-header.png" alt="Termômetro" class="header-icon">
+                    <h1>Temperature<br>Converter</h1>
+                </div>
+                <p class="subtitle">Convert between Celsius, Fahrenheit & Kelvin &bull; Live conversion</p>
+            </header>
+
+            <!-- Campos de Conversão -->
+            <main class="fields">
+                
+                <!-- Campo Celsius -->
+                <div class="field field-celsius">
+                    <div class="field-info">
+                        <img src="./Assets/icons/icon-celsiusicon-celsius.png" alt="Celsius">
+                        <label for="celsius">Celsius</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="number" id="celsius" placeholder="22" step="any">
+                        <span class="unit">°C</span>
+                    </div>
+                </div>
+
+                <!-- Campo Fahrenheit -->
+                <div class="field field-fahrenheit">
+                    <div class="field-info">
+                        <img src="./Assets/icons/icon-fahrenheiticon-fahrenheit.png" alt="Fahrenheit">
+                        <label for="fahrenheit">Fahrenheit</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="number" id="fahrenheit" placeholder="71.6" step="any">
+                        <span class="unit">°F</span>
+                    </div>
+                </div>
+
+                <!-- Campo Kelvin -->
+                <div class="field field-kelvin">
+                    <div class="field-info">
+                        <img src="./Assets/icons/Groupicon-kelvin.png" alt="Kelvin">
+                        <label for="kelvin">Kelvin</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="number" id="kelvin" placeholder="295.15" step="any">
+                        <span class="unit">K</span>
+                    </div>
+                </div>
+
+            </main>
+
+            <!-- Rodapé com Pills de Status -->
+            <footer class="card-footer">
+                <div class="status-pills">
+                    <div class="pill pill-auto">
+                        <span class="dot-green"></span>
+                        <span>Auto-updating</span>
+                    </div>
+
+                    <div class="pill pill-synced">
+                        <img src="./Assets/icons/Sincronização.png" alt="" class="pill-icon">
+                        <span>Synced</span>
+                    </div>
+
+                    <div class="pill pill-info">
+                        <img src="./Assets/icons/icon-information.png" alt="" class="pill-icon">
+                        <span>Absolute Zero: -273.15°C</span>
+                    </div>
+                </div>
+
+                <!-- Botão Reset Values -->
+                <button type="button" id="btn-reset" class="btn-reset">Reset Values</button>
+            </footer>
+
+        </div>
     </div>
 
     <script src="./script.js"></script>
