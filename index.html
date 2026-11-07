@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Assets/style.css">
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <div class="container">
+        <header class="card-header">
+            <img src="./Assets/icons/Groupicon-header.png" alt="Ícone de termômetro">
+            <h1>Temperature Converter</h1>
+        </header>
+        <main class="fields">
+
+            <div class="field">
+                <img src="./Assets/icons/icon-celsiusicon-celsius.png" alt="Celsius">
+                <label for="celsius">Celsius</label>
+                <input type="number" id="celsius" placeholder="0">
+            </div>
+
+            <div class="field">
+                <img src="./Assets/icons/icon-fahrenheiticon-fahrenheit.png" alt="Fahrenheit">
+                <label for="fahrenheit">Fahrenheit</label>
+                <input type="number" id="fahrenheit" placeholder="0">
+            </div>
+
+            <div class="field">
+                <img src="./Assets/icons/Groupicon-kelvin.png" alt="Kelvin">
+                <label for="kelvin">Kelvin</label>
+                <input type="number" id="kelvin" placeholder="0">
+            </div>
+        </main>
+
+        <footer class="card-footer">
+
+            <div class="pill pill-auto">
+                <img src="./Assets/icons/icon-auto-updating.png" alt="auto update">
+                <span>Auto updating</span>
+            </div>
+
+            <button class="btn-sinc" type="button" aria-label="sincronizar">
+                <img src="./Assets/icons/Sincronização.png" alt="">
+            </button>
+
+            <div class="pill pill-info">
+                <img src="./Assets/icons/icon-information.png" alt="Informação">
+                <span>Res. value . Zero absolute</span>
+            </div>
+            
+        </footer>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

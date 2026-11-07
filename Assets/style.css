@@ -1,0 +1,137 @@
+/* 
+    Reset básico - remove margens e padding padrões do navegador
+*/
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #030d18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    color: #fafcff;
+}
+
+.container {
+    width: 90%;
+    max-width: 840px;
+    padding: 40px 32px 32px;
+    border-radius: 32px;
+    background: linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.07) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.card-header img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.card-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* Área dos campos */
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Cada campo individual */
+.field {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.field img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.field label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    min-width: 100px;
+}
+
+.field input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: #fafcff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Rodapé */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* Pills (auto update e info) */
+.pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.pill img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+/* Botão de sinc */
+.btn-sinc {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.btn-sinc img {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
