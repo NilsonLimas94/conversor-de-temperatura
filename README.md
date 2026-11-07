@@ -7,12 +7,16 @@ Um conversor de temperatura moderno, interativo e bidirecional construído com *
 ## Funcionalidades
 
 - **Conversão em Tempo Real (Bidirecional):** Digite em qualquer uma das três escalas (Celsius, Fahrenheit ou Kelvin) e os outros dois campos são calculados e formatados automaticamente com 2 casas decimais.
+
 - **Botão de Reset:** Um clique limpa todos os campos instantaneamente e devolve o foco para o primeiro campo.
+
 - **Design Aurora Boreal:**
   - Borda giratória com gradiente cônico em 360° com as cores da aurora boreal (`#3ADCA8`, `#5E83F4`, `#DB8BFF`, `#DB64B3`).
   - Efeito glassmorphism escuro com profundidade e iluminação neon.
   - Destaque e glow customizado para cada escala ao focar.
+
 - **Totalmente Responsivo:** Tipografia fluida com `clamp()` e regras de media query garantem visual perfeito de celulares pequenos a monitores ultrawide.
+
 - **Acessibilidade:** Uso de tags semânticas (`<header>`, `<main>`, `<footer>`), labels associados aos inputs via `for`/`id` e suporte a leitores de tela.
 
 ---
@@ -53,17 +57,17 @@ conversor-de-temperatura/
 
 ---
 
-## 🌐 Deploy
+## Deploy
 
 Você pode testar a aplicação funcionando ao vivo no link abaixo:
 
-🔗 **[Acessar o Projeto Online](https://seu-link-de-deploy-aqui.vercel.app)** *(substitua pelo seu link do GitHub Pages, Vercel ou Netlify)*
+🔗 **[Acessar o Projeto Online](https://conversor-de-temperatura.vercel.app)**
 
 ---
 
-## 👨‍💻 Autor
+## Autor
 
-Desenvolvido por **Nilson Junior**.
+Desenvolvido por **Nilson Limas Junior**.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/seu-usuario-linkedin/)
-*(substitua `seu-usuario-linkedin` pelo link do seu perfil)*
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nilsonlimasjunior/)
+

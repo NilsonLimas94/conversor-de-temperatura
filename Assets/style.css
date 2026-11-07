@@ -193,9 +193,6 @@ body {
     -webkit-appearance: none;
     margin: 0;
 }
-.input-wrapper input[type=number] {
-    -moz-appearance: textfield;
-}
 
 .unit {
     font-size: clamp(0.95rem, 3vw, 1.15rem);
